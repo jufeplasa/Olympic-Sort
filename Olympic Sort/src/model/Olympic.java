@@ -1,12 +1,19 @@
 package model;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+	
 
 public class Olympic {
 
+	public static final String IMPORT_DATA="data/Countries.txt";
+	public static final String EXPORT_DATA="";
+	
 	private List<Country> countries;
 
 
@@ -22,7 +29,7 @@ public class Olympic {
 		this.countries = countries;
 	}
 
-	public void addCounty(Country newCountry) {
+	public void addCountry(Country newCountry) {
 		countries.add(newCountry);
 	}
 
@@ -86,5 +93,17 @@ public class Olympic {
 			}
 			countries.set(j+1, aux);
 		}
+	}
+	
+	public void importData() throws IOException {
+		BufferedReader br= new BufferedReader(new FileReader(IMPORT_DATA));
+		String line = br.readLine();
+		while(line!=null) {
+			String [] part = line.split(";");
+			Country register = new Country(part[0],Integer.parseInt(part[1]),Integer.parseInt(part[2]),Integer.parseInt(part[3]),Integer.parseInt(part[4]),Integer.parseInt(part[5]),Integer.parseInt(part[6]));
+			addCountry(register);
+			line = br.readLine();
+		}
+		br.close();
 	}
 }

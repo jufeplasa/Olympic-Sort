@@ -77,20 +77,20 @@ public class Country implements Comparable<Country>{
 		return name+" "+(totalGold)+" "+(totalSilver)+" "+(totalBronze);
 	}
 	
-	public int compareByTotalMedals(Country o) {
-		if(Integer.compare(o.getTotalGold(), totalGold)!=0) {
-			return Integer.compare(o.getTotalGold(), totalGold);
+	public int compareByTotalMedals(Country otherCountry) {
+		if(Integer.compare(otherCountry.getTotalGold(), totalGold)!=0) {
+			return Integer.compare(otherCountry.getTotalGold(), totalGold);
 		}
 		else {
-			if(Integer.compare(o.getTotalSilver(), totalSilver)!=0) {
-				return Integer.compare(o.getTotalSilver(), totalSilver);
+			if(Integer.compare(otherCountry.getTotalSilver(), totalSilver)!=0) {
+				return Integer.compare(otherCountry.getTotalSilver(), totalSilver);
 			}
 			else {
-				if(Integer.compare(o.getTotalBronze(), totalBronze)!=0) {
-					return Integer.compare(o.getTotalBronze(), totalBronze);
+				if(Integer.compare(otherCountry.getTotalBronze(), totalBronze)!=0) {
+					return Integer.compare(otherCountry.getTotalBronze(), totalBronze);
 				}
 				else {
-					return o.getName().compareTo(name);
+					return otherCountry.getName().compareTo(name);
 				}
 			}
 		}
@@ -110,7 +110,7 @@ public class Country implements Comparable<Country>{
 					return Integer.compare(femaleBronze , o.getFemaleBronze());
 				}
 				else {
-					return name.compareTo(o.getName());
+					return o.getName().compareTo(name);
 				}
 			}
 		}

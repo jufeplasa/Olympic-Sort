@@ -19,7 +19,7 @@ public class MedalsMale implements Comparator<Country>{
 					return Integer.compare(o2.getMaleBronze(),o1.getMaleBronze());
 				}
 				else {
-					return o2.getName().compareTo(o1.getName());
+					return o1.getName().compareTo(o2.getName());
 				}
 			}
 		}

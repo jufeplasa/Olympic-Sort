@@ -14,23 +14,40 @@ public class Main {
 	private static Olympic olympic= new Olympic();
 
 	public static void main (String[] args) throws IOException {
-		int numberCountries=0;
-		System.out.println("How many countries participated?");
-		numberCountries=sc.nextInt();
-		sc.nextLine();
-		enterCountries(numberCountries);
+		int a=0;
+		int option=0;
+		while(a==0) {
+
+			System.out.println("What do you choose?: Enter the countries (1) or import countries(2)");
+			option=sc.nextInt();
+			if(option==1) {
+				int numberCountries=0;
+				System.out.println("How many countries participated?");
+				numberCountries=sc.nextInt();
+				sc.nextLine();
+				enterCountries(numberCountries);
+				a++;
+			}
+			else if(option==2) {
+				olympic.importData();
+				a++;
+			}
+			else {
+				System.out.println("The option is incorrect, please try again.");
+			}
+		}
 
 		olympic.sortCountriesByMaleMedals();
 		System.out.println(olympic.showCountries(1));
-		
+
 		System.out.println("----------");
 		olympic.sortCountriesByFemaleMedals();
 		System.out.println(olympic.showCountries(2));
-		
+
 		System.out.println("----------");
 		olympic.sortCountriesByTotalMedals();
 		System.out.println(olympic.showCountries(3));
-		
+
 		System.out.println("----------");
 		olympic.insertionSortByTotalMedals();
 		System.out.println(olympic.showCountries(3));
@@ -43,7 +60,7 @@ public class Main {
 		for(int i=0;i<numberCountries;i++) {
 			String information=br.readLine();
 			properties=information.split("\\;");
-			olympic.addCounty(new Country(properties[0],Integer.parseInt(properties[1]),Integer.parseInt(properties[2]),Integer.parseInt(properties[3]), Integer.parseInt(properties[4]), Integer.parseInt(properties[5]), Integer.parseInt(properties[6])));
+			olympic.addCountry(new Country(properties[0],Integer.parseInt(properties[1]),Integer.parseInt(properties[2]),Integer.parseInt(properties[3]), Integer.parseInt(properties[4]), Integer.parseInt(properties[5]), Integer.parseInt(properties[6])));
 		}
 	}
 }
