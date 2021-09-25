@@ -12,7 +12,6 @@ import java.util.List;
 public class Olympic {
 
 	public static final String IMPORT_DATA="data/Countries.txt";
-	public static final String EXPORT_DATA="";
 	
 	private List<Country> countries;
 
