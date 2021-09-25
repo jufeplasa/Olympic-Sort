@@ -19,7 +19,21 @@ public class Main {
 		numberCountries=sc.nextInt();
 		sc.nextLine();
 		enterCountries(numberCountries);
-		System.out.println(olympic.showCountries());
+
+		olympic.sortCountriesByMaleMedals();
+		System.out.println(olympic.showCountries(1));
+		
+		System.out.println("----------");
+		olympic.sortCountriesByFemaleMedals();
+		System.out.println(olympic.showCountries(2));
+		
+		System.out.println("----------");
+		olympic.sortCountriesByTotalMedals();
+		System.out.println(olympic.showCountries(3));
+		
+		System.out.println("----------");
+		olympic.insertionSortByTotalMedals();
+		System.out.println(olympic.showCountries(3));
 	}
 
 	public static void enterCountries(int numberCountries) throws IOException {
